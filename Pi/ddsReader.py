@@ -26,7 +26,7 @@ class RegisterItem:
 
 
 def readArduinoTemp(instrument):
-    registers = instrument.read_registers(0, 2)
+    registers = instrument.read_registers(0, 2, functioncode=4)
 
     return [
         RegisterItem('Humidity', registers[0] / 100.0, '%'),
@@ -129,7 +129,7 @@ def main():
         sleep(pollIntervalSeconds)
         print('Next read')
         try:
-            data = readTest(instrument)
+            data = readArduinoTemp(instrument)
             writeLineToFile(data)
         except Exception as e:
             print(e)
