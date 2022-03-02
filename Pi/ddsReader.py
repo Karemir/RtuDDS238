@@ -45,7 +45,7 @@ def regToSigned16(registers, index):
 
 
 def readDds238(instrument):
-    registers = instrument.read_reagisters(0, 18)
+    registers = instrument.read_registers(0, 18)
 
     return [
         RegisterItem('total energy',
