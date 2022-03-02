@@ -12,7 +12,7 @@ import serial
 
 outputDir = 'data'
 rtuPort = '/dev/ttyS0'
-deviceId = 13
+deviceId = 1
 pollIntervalSeconds = 1
 serialBaudrate = 9600
 serialTimeout = 1.3  # seconds
@@ -129,7 +129,7 @@ def main():
         sleep(pollIntervalSeconds)
         print('Next read')
         try:
-            data = readArduinoTemp(instrument)
+            data = readDds238(instrument)  # readArduinoTemp(instrument)
             writeLineToFile(data)
         except Exception as e:
             print(e)
